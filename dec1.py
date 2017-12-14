@@ -104,5 +104,26 @@ def day3(n):
     
     return m, x, y, steps
 
+# print(day3(312051))
 
-print(day3(312051))
+
+def day4(pws):
+
+    def is_valid(pw):
+        pw = pw.strip().split()
+        seen = set()
+        for w in pw:
+            if w in seen:
+                return 0
+            seen.add(w)
+        return 1
+
+    c = 0
+    for pw in pws:
+        c += is_valid(pw)
+    return c
+
+with open('day4.txt', 'r') as f:
+    pws = f.readlines()
+
+print(day4(pws))
